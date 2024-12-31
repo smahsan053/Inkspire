@@ -30,6 +30,12 @@ export default function CommentSection({ _id }: { _id: string }) {
       body: JSON.stringify(formData),
     })
       .then((response) => {
+        setFormData({
+          name: "",
+          email: "",
+          comment: "",
+          _id,
+        });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
